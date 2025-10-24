@@ -4,11 +4,11 @@ import userRoutes from "./routes/userRoutes.js";
 import adminRoutes from "./routes/adminRoutes.js";
 import noticesRoutes from "./routes/noticesRoutes.js";
 import alertsRoutes from "./routes/alertsRoutes.js";
-import Cors from "cors";
+import cors from "cors";
 
 const app = express();
+app.use(cors());
 app.use(express.json());
-app.use(Cors());
 
 app.use("/users", userRoutes);
 app.use("/admin", auth, adminRoutes);
