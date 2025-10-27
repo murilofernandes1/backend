@@ -13,6 +13,7 @@ model User {
   password  String
   name      String
   role String @default("Colaborador")
+  image String?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   departmentId String? @db.ObjectId
