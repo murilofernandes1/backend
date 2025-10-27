@@ -13,9 +13,11 @@ router.post("/", async (req, res) => {
     });
     await prisma.alerts.create({
       data: {
+        title: newAlert.title,
         senderId: userId,
         departmentId: newAlert.department,
         content: newAlert.content,
+        dateTime: newAlert?.dateTime,
       },
     });
     res.status(200).json({ message: "Alerta criado com sucesso" });

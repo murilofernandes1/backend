@@ -61,7 +61,9 @@ model Alerts{
   receiver User? @relation("AlertsReceiver", fields: [receiverId], references: [id])
   sender User @relation("AlertsSender",fields: [senderId], references: [id])
   senderId String @db.ObjectId
+  title String
   content String 
+  dateTime DateTime
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
