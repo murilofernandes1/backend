@@ -31,6 +31,7 @@ router.get("/", async (req, res) => {
     res.status(200).json(cityAlerts);
   } catch (error) {
     console.error("Erro ao carregar os posts:", error);
+    console.log(error);
     res.status(500).json({ message: "Não foi possível carregar os posts" });
   }
 });
