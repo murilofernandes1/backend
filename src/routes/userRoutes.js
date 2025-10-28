@@ -7,5 +7,5 @@ const router = express.Router();
 
 router.use("/me", auth, Me);
 router.use("/fop", auth, Fop);
-router.use("/fop", auth, MyFops);
+router.use("/fops", auth, MyFops);
 export default router;
