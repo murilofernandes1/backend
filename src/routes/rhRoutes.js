@@ -5,6 +5,7 @@ import UpdateDepartment from "../controllers/rh/Department/UpdateDepartment.js";
 import Alert from "../controllers/rh/Alerts/Alert.js";
 import Register from "../controllers/rh/Register/Register.js";
 import NewNotice from "../controllers/rh/Notices/NewNotice.js";
+import Approve from "../controllers/rh/Fop/ApproveFop.js";
 const router = express.Router();
 
 router.use("/fop", SeeFops);
