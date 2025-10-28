@@ -1,11 +1,11 @@
 import express from "express";
-import Register from "../controllers/public/users/Register.js";
-import Login from "../controllers/public/users/Login.js";
-import Me from "../controllers/private/users/Me.js";
+import Me from "../controllers/user/Me/User.js";
 import auth from "../middleware/auth.js";
+import Fop from "../controllers/user/Fop/FOP.js";
+import MyFops from "../controllers/user/Fop/MyFops.js";
 const router = express.Router();
 
-router.use("/register", Register);
-router.use("/login", Login);
 router.use("/me", auth, Me);
+router.use("/fop", auth, Fop);
+router.use("/fop", auth, MyFops);
 export default router;

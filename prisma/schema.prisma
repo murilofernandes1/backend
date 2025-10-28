@@ -18,6 +18,7 @@ model User {
   updatedAt DateTime @updatedAt
   departmentId String? @db.ObjectId
   department Departments? @relation(fields: [departmentId], references: [id])
+  fops Fop[]
   cityId String  @db.ObjectId
   city City @relation(fields: [cityId], references: [id])
   alertsSended Alerts[] @relation("AlertsSender")
@@ -65,6 +66,17 @@ model Alerts{
   title String
   content String 
   dateTime DateTime
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+model Fop {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  colaborator User @relation(fields: [colaboratorId], references: [id])
+  colaboratorId String @db.ObjectId
+  status String @default("Pending")
+  datetime DateTime
+  justify String
+  correctHour String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
