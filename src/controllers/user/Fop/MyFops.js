@@ -24,6 +24,7 @@ router.get("/", async (req, res) => {
     res.status(200).json(fops);
   } catch (error) {
     res.status(500).json({ message: "Não foi possivel encontrar os fops " });
+    console.log(error);
   }
 });
 export default router;
