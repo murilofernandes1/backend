@@ -18,9 +18,8 @@ const auth = (req, res, next) => {
     req.userId = decoded.id;
     next();
   } catch (error) {
-    return res
-      .status(401)
-      .json({ message: "Token inválido", error: error.message });
+    res.status(401).json({ message: "Token inválido", error: error.message });
+    console.log(error);
   }
 };
 
