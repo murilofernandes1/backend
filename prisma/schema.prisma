@@ -18,7 +18,7 @@ model User {
   updatedAt DateTime @updatedAt
   departmentId String? @db.ObjectId
   department Departments? @relation(fields: [departmentId], references: [id])
-  fops Fop[]
+  fops Fop[] @relation("UserFops")
   cityId String  @db.ObjectId
   city City @relation(fields: [cityId], references: [id])
   alertsSended Alerts[] @relation("AlertsSender")
@@ -71,7 +71,7 @@ model Alerts{
 }
 model Fop {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
-  colaborator User @relation(fields: [colaboratorId], references: [id])
+ colaborator    User     @relation("UserFops", fields: [colaboratorId], references: [id])
   colaboratorId String @db.ObjectId
   status String @default("Pending")
   datetime DateTime
