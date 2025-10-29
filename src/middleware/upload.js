@@ -5,7 +5,7 @@ import cloudinary from "../config/cloudinary.js";
 const storage = new CloudinaryStorage({
   cloudinary: cloudinary,
   params: {
-    folder: "notices", // pasta onde as imagens serão salvas
+    folder: "notices",
     allowed_formats: ["jpg", "png", "jpeg", "webp"],
     transformation: [{ width: 800, crop: "limit" }],
   },

@@ -21,7 +21,7 @@ router.post("/", async (req, res) => {
     const isMatch = await bcrypt.compare(userInfo.password, user.password);
 
     if (!isMatch) {
-      res.status(400).json({ message: "Senha inválida" });
+      return res.status(400).json({ message: "Senha inválida" });
     }
     const token = jwt.sign({ id: user.id }, JWT_SECRET, { expiresIn: "1y" });
     res.status(200).json(token);

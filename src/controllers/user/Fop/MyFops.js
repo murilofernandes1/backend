@@ -17,6 +17,7 @@ router.get("/", async (req, res) => {
 
     const fops = await prisma.fop.findMany({
       where: { colaboratorId: userId },
+      orderBy: { createdAt: "desc" },
     });
     if (!fops) {
       return res.status(404).json({ message: "Nenhum FOP deste usuário" });
